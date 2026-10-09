@@ -1,0 +1,60 @@
+:root {
+  font-family: system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif;
+  color: #1f1d2b;
+  background: #f7f7fb;
+}
+
+body {
+  margin: 0;
+}
+
+.demo {
+  max-width: 960px;
+  margin: 0 auto;
+  padding: 32px 16px;
+}
+
+.demo h1 {
+  margin: 0 0 8px;
+}
+
+.demo__hint {
+  margin: 0 0 20px;
+  color: #5c5a6e;
+}
+
+.demo__controls {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 16px;
+  margin-bottom: 20px;
+}
+
+.demo__controls label {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  font-size: 14px;
+  color: #5c5a6e;
+}
+
+.demo__controls select,
+.demo__controls input {
+  font: inherit;
+  padding: 6px 8px;
+  border: 1px solid #d6d3f0;
+  border-radius: 8px;
+  background: #fff;
+  min-width: 80px;
+}
+
+.demo__card {
+  display: grid;
+  place-items: center;
+  height: 100%;
+  min-height: 96px;
+  border-radius: 12px;
+  font-size: 28px;
+  font-weight: 700;
+  user-select: none;
+}

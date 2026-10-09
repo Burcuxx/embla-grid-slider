@@ -1,0 +1,76 @@
+.grid-slider {
+  --grid-slider-accent: #6d5dfc;
+  --grid-slider-muted: #d6d3f0;
+}
+
+.grid-slider__viewport {
+  overflow: hidden;
+}
+
+/* Embla's recommended gap pattern: negative margin on the container,
+   matching padding on each slide, so snap points stay aligned. */
+.grid-slider__container {
+  display: flex;
+  touch-action: pan-y pinch-zoom;
+  margin-inline-start: calc(var(--grid-slider-gap) * -1);
+}
+
+.grid-slider__column {
+  flex: 0 0 calc(100% / var(--grid-slider-columns));
+  min-width: 0;
+  padding-inline-start: var(--grid-slider-gap);
+  box-sizing: border-box;
+  display: grid;
+  grid-template-rows: repeat(var(--grid-slider-rows), 1fr);
+  row-gap: var(--grid-slider-gap);
+}
+
+.grid-slider__cell {
+  min-width: 0;
+}
+
+.grid-slider__controls {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  margin-top: 16px;
+}
+
+.grid-slider__arrow {
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  border: 1px solid var(--grid-slider-muted);
+  background: transparent;
+  color: inherit;
+  font-size: 22px;
+  line-height: 1;
+  cursor: pointer;
+}
+
+.grid-slider__arrow:disabled {
+  opacity: 0.35;
+  cursor: default;
+}
+
+.grid-slider__dots {
+  display: flex;
+  gap: 8px;
+}
+
+.grid-slider__dot {
+  width: 8px;
+  height: 8px;
+  padding: 0;
+  border: 0;
+  border-radius: 999px;
+  background: var(--grid-slider-muted);
+  cursor: pointer;
+  transition: width 0.2s;
+}
+
+.grid-slider__dot--active {
+  width: 22px;
+  background: var(--grid-slider-accent);
+}
