@@ -118,7 +118,7 @@ export function GridSlider<T>({
               className="grid-slider__arrow"
               onClick={() => emblaApi?.scrollPrev()}
               disabled={!canPrev}
-              aria-label="Önceki"
+              aria-label="Previous"
             >
               ‹
             </button>
@@ -131,7 +131,7 @@ export function GridSlider<T>({
                   key={i}
                   className={`grid-slider__dot${i === selected ? ' grid-slider__dot--active' : ''}`}
                   onClick={() => emblaApi?.scrollTo(i)}
-                  aria-label={`Sayfa ${i + 1} / ${snaps.length}`}
+                  aria-label={`Page ${i + 1} of ${snaps.length}`}
                   aria-current={i === selected ? 'true' : undefined}
                 />
               ))}
@@ -143,7 +143,7 @@ export function GridSlider<T>({
               className="grid-slider__arrow"
               onClick={() => emblaApi?.scrollNext()}
               disabled={!canNext}
-              aria-label="Sonraki"
+              aria-label="Next"
             >
               ›
             </button>

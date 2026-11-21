@@ -13,12 +13,12 @@ export function App() {
     <main className="demo">
       <h1>Embla Grid Slider</h1>
       <p className="demo__hint">
-        Öğeler sütun sütun dizilir: önce ilk sütun yukarıdan aşağıya dolar, sonra bir sonrakine geçilir.
+        Items are laid out column by column: the first column fills top to bottom, then the next one starts.
       </p>
 
       <div className="demo__controls">
         <label>
-          Satır
+          Rows
           <select value={rows} onChange={(e) => setRows(Number(e.target.value))}>
             {[1, 2, 3, 4].map((n) => (
               <option key={n} value={n}>{n}</option>
@@ -26,7 +26,7 @@ export function App() {
           </select>
         </label>
         <label>
-          Görünen sütun
+          Visible columns
           <select value={columnsPerView} onChange={(e) => setColumnsPerView(Number(e.target.value))}>
             {[1, 2, 3, 4, 5].map((n) => (
               <option key={n} value={n}>{n}</option>
@@ -34,7 +34,7 @@ export function App() {
           </select>
         </label>
         <label>
-          Öğe sayısı
+          Items
           <input
             type="number"
             min={0}
@@ -49,7 +49,7 @@ export function App() {
         items={items}
         rows={rows}
         columnsPerView={columnsPerView}
-        ariaLabel="Örnek kartlar"
+        ariaLabel="Sample cards"
         renderItem={(n) => (
           <div className="demo__card" style={{ background: `hsl(${HUES[(n - 1) % HUES.length]} 70% 92%)` }}>
             {n}

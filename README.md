@@ -1,8 +1,10 @@
 # Embla Grid Slider
 
-[Embla Carousel](https://www.embla-carousel.com/) (`embla-carousel-react`, MIT) üzerine kurulmuş, **grid düzeninde ve sütun öncelikli** sıralanan bir React slider bileşeni.
+A React slider component with a **grid layout and column-first ordering**, built on [Embla Carousel](https://www.embla-carousel.com/) (`embla-carousel-react`, MIT).
 
-Öğeler sütun sütun yerleşir: önce ilk sütun yukarıdan aşağıya dolar, sonra bir sonrakine geçilir. `rows = 3` için:
+**Live demo:** https://burcuxx.github.io/embla-grid-slider/
+
+Items fill column by column: the first column fills top to bottom, then the next one starts. With `rows = 3`:
 
 ```
 1  4  7  10
@@ -10,43 +12,43 @@
 3  6  9  12
 ```
 
-## Çalıştırma
+## Run it
 
 ```bash
 npm install
-npm run dev      # demo sayfası
-npm test         # sıralama testleri
-npm run build    # tip kontrolü + üretim derlemesi
+npm run dev      # demo page
+npm test         # ordering tests
+npm run build    # type check + production build
 ```
 
-## Kullanım
+## Usage
 
 ```tsx
 import { GridSlider } from './GridSlider'
 
 <GridSlider
   items={products}
-  rows={2}               // 1–4 arası
-  columnsPerView={3}     // aynı anda görünen sütun sayısı
+  rows={2}               // 1–4
+  columnsPerView={3}     // columns visible at once
   gap={12}               // px
   getKey={(p) => p.id}
   renderItem={(p) => <ProductCard product={p} />}
 />
 ```
 
-| Prop | Varsayılan | Açıklama |
+| Prop | Default | Description |
 | --- | --- | --- |
-| `items` | — | Gösterilecek öğeler |
+| `items` | — | Items to show |
 | `renderItem` | — | `(item, index) => ReactNode` |
-| `getKey` | index | Her öğe için React anahtarı |
-| `rows` | `2` | Sütun başına satır (1–4). Geçersiz değer sınırlara çekilir, geliştirme modunda uyarı verir |
-| `columnsPerView` | `3` | Görünen sütun sayısı |
-| `gap` | `12` | Sütunlar ve satırlar arası boşluk (px) |
-| `options` | — | Embla seçenekleri (`loop`, `dragFree`, `slidesToScroll` vb.) |
-| `showDots` / `showArrows` | `true` | Sayfa noktaları ve önceki/sonraki okları |
-| `ariaLabel` | `"Slider"` | Ekran okuyucu etiketi |
-| `onSelect` | — | Seçili sayfa değişince çağrılır |
+| `getKey` | index | React key for each item |
+| `rows` | `2` | Rows per column (1–4). Out-of-range values are clamped, with a warning in development |
+| `columnsPerView` | `3` | Number of visible columns |
+| `gap` | `12` | Space between columns and rows (px) |
+| `options` | — | Embla options (`loop`, `dragFree`, `slidesToScroll`, etc.) |
+| `showDots` / `showArrows` | `true` | Page dots and previous/next arrows |
+| `ariaLabel` | `"Slider"` | Label for screen readers |
+| `onSelect` | — | Called when the selected page changes |
 
-## Nasıl çalışır
+## How it works
 
-`chunkColumns` öğeleri `rows` boyutunda sütunlara böler ve son sütunu boş hücrelerle tamamlar. Her sütun Embla'ya bir slide olarak verilir, böylece sürükleme ve snap sütun bazında çalışır. Sütun içi düzen CSS grid ile yapılır, bu sayede tüm satırlar aynı yükseklikte kalır.
+`chunkColumns` splits the items into columns of `rows` items and pads the last column with empty cells. Each column is passed to Embla as one slide, so dragging and snapping work per column. The layout inside a column uses CSS grid, which keeps every row the same height.
