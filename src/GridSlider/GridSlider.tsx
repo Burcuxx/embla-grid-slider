@@ -22,6 +22,11 @@ export type GridSliderProps<T> = {
   onSelect?: (snapIndex: number) => void
 }
 
+/**
+ * Grid slider built on Embla Carousel. Items fill each column top to bottom
+ * (1–4 rows), and each column is one Embla slide, so dragging and snapping
+ * move whole columns.
+ */
 export function GridSlider<T>({
   items,
   renderItem,

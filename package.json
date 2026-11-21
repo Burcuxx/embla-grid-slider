@@ -2,6 +2,7 @@
   "name": "embla-grid-slider",
   "private": true,
   "version": "0.1.0",
+  "description": "A React grid slider built on Embla Carousel that fills items column by column, with 1 to 4 rows.",
   "type": "module",
   "scripts": {
     "dev": "vite",
